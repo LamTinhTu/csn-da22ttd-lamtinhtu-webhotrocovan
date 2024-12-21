@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Homepage</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'image/logotvu.png'%}">
+    <meta name="viewport" content="width=device-width, initical-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% comment %} <link rel="stylesheet" href="css/styles.css"> {% endcomment %}
+    <link rel="stylesheet" href="{%static 'css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="trangdau">
+        <div class="logo">
+            <table>
+                <tr>
+                    <td><img src="{%static 'image/settvu.png' %}" style="width:250px; height: 70px; padding-bottom: 10px;"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="user-menu">
+            <i class="fas fa-user-circle" id="userIcon"></i>
+            <ul id="dropdownMenu" class="hidden">
+                <li><a href="{% url 'login'%}">Đăng nhập</a></li>
+                <li><a href="{% url 'register' %}">Đăng ký</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <nav class="noidung">
+        <img src="{%static 'css/img/boho2.png' %}" style="width:100%; height:100%;" />
+    </nav>
+
+    <footer>
+        <p style="text-align: center;">&copy; Khoa Kỹ thuật và Công nghệ, Trường Đại Học Trà Vinh.</p>
+    </footer>
+    {% comment %} <script src="js/taikhoan.js"></script> {% endcomment %}
+    <script src="{%static 'js/taikhoan.js' %}"></script>
+</body>
+
+</html>

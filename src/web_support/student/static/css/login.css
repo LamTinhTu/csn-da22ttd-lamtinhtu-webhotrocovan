@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('img/boho.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.first {
+    width: 420px;
+    background: #FFFFFF; 
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #333333;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.first h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #007BFF; 
+}
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333333; 
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #777; 
+}
+
+.input-box i {
+    position: absolute; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #007BFF; 
+}
+
+.first .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #007BFF; 
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #007BFF; 
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    color: red;
+}
+
+.first .btn {
+    width: 100%;
+    height: 45px;
+    background: #007BFF; 
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF; 
+    font-weight: 600;
+}
+
+.first .btn:active {
+    background: red;
+    transition: background-color 0.2s; 
+}
+
+.first .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link a {
+    color: #007BFF; 
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    color: red;
+}
+
+footer {
+    background-color: transparent; 
+    padding: 10px; 
+    text-align: center; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    left: 0; 
+    z-index: 1000; 
+}
+
+.footer-content {
+    color: white; 
+    font-size: 14px; 
+}
+
+
+
+
+
+/* Đăng Ký */
+.first2 {
+    width: 420px;
+    background: #FFFFFF; 
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #FF0000; 
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.first2 h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #FF0000; 
+}
+
+.input-box2 {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box2 input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333333; 
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box2 input::placeholder {
+    color: #777; 
+}
+
+.input-box2 i {
+    position: absolute; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #FF0000; 
+}
+
+.first2 .btn {
+    width: 100%;
+    height: 45px;
+    background: #FF0000;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF; 
+    font-weight: 600;
+}
+
+.first2 .btn:active {
+    background: #007BFF; 
+    transition: background-color 0.2s; 
+}
+
+.first2 .register-link2 {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+    color: #000000; 
+}
+
+.register-link2 a {
+    color: #FF0000; 
+    text-decoration: none;
+}
+
+.register-link2 a:hover {
+    color: #007BFF; 
+}
+
+/* Quên mật Khẩu */
+.first3 {
+    width: 420px;
+    background: #FFFFFF; 
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #008000; 
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.first3 h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #008000; 
+}
+
+.input-box3 {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box3 input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333333; 
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box3 input::placeholder {
+    color: #777; 
+}
+
+.input-box3 i {
+    position: absolute; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #008000; 
+}
+
+.first3 .btn {
+    width: 100%;
+    height: 45px;
+    background: #008000; 
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #FFFFFF; 
+    font-weight: 600;
+}
+
+.first3 .btn:active {
+    background: #007BFF; 
+    transition: background-color 0.2s; 
+}
+
+.first3 .register-link3 {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+    color: #000000; 
+}
+
+.register-link3 a {
+    color: #008000; 
+    text-decoration: none;
+}
+.register-link3 a:hover {
+    color: #007BFF; 
+}
+
+
+/* Đặt lại mật khẩu*/
+.first4 {
+    width: 420px;
+    background: #FFFFFF; 
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #008000; 
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.first4 h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #008000; 
+}
+
+.input-box4 {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+}
+
+.input-box4 input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333333; 
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box4 input::placeholder {
+    color: #777; 
+}
+
+.input-box4 i {
+    position: absolute; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #008000; 
+}
+
+.first4 .btn {
+    width: 100%;
+    height: 45px;
+    background: #008000; 
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white; 
+    font-weight: 600;
+}
+
+.first4 .btn:active {
+    background: #007BFF; 
+    transition: background-color 0.2s; 
+}
+

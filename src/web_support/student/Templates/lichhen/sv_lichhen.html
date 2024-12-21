@@ -1,0 +1,116 @@
+{% extends "student.html" %}
+{% block content %}
+<div class="mb-3 text-end" style="padding-top: 10px;">
+  <button class="btn btn-warning text-white" id="btnNotification" data-bs-toggle="modal"
+    data-bs-target="#notificationModal">
+    <i class="fas fa-bell"></i>
+  </button>
+</div>
+
+<!-- form chứa danh sách tin nhắn -->
+<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="notificationModalLabel">Tin Nhắn Đến</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Danh sách tin nhắn -->
+        <ul id="messageList" class="list-group">
+          <!-- Nơi chưuas tin nhắn -->
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h2 class="border-bottom pb-2 mb-0" style="color: #3340d0;   font-weight: bold;">Lịch Hẹn</h2>
+  <div class="table-container" style="padding-top:20px;">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th style="color: #0056b3">Mã Giảng Viên</th>
+          <th style="color: #0056b3">Mã Số Sinh Viên</th>
+          <th style="color: #0056b3">Tên Buổi Hẹn</th>
+          <th style="color: #0056b3">Ngày</th>
+          <th style="color: #0056b3">Giờ</th>
+          <th style="color: #0056b3">Địa Điểm</th>
+          <th style="color: #0056b3">Trạng Thái</th>
+        </tr>
+        <tr>
+          <td style="color: #0056b3">110122249</td>
+          <td style="color: #0056b3">110125485</td>
+          <td style="color: #0056b3">Trao đổi CSN</td>
+          <td style="color: #0056b3">10/10/2024</td>
+          <td style="color: #0056b3">16:00 PM</td>
+          <td style="color: #0056b3">C71.102</td>
+          <td style="color: #0056b3">Đã Hẹn</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mb-3 text-end" style="padding-top: 10px;">
+      <button class="btn btn-primary text-white me-2" id="btnAdd">Hẹn</button>
+      <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+      <button class="btn btn-primary text-white" id="btnDelete">Hủy Hẹn</button>
+    </div>
+    <div class="modal fade" id="addAdvisorModal" tabindex="-1" aria-labelledby="addAdvisorModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAdvisorModalLabel">Thêm Lịch Hẹn</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Form nhập thông tin sinh viên -->
+            <form id="advisorForm">
+              <div class="mb-3">
+                <label for="maGiangVien" class="form-label">Mã Số Giảng Viên <span
+                    class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="maGiangVien" required>
+              </div>
+              <div class="mb-3">
+                <label for="maSinhVien" class="form-label">Mã Số Sinh Viên <span
+                    class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="maSinhVien" required>
+              </div>
+              <div class="mb-3">
+                <label for="tenbuoihen" class="form-label">Tên Buổi Hẹn<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="tenbuoihen" required>
+              </div>
+              <div class="mb-3">
+                <label for="ngay" class="form-label">Ngày<span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="ngay" required>
+              </div>
+              <div class="mb-3">
+                <label for="gio" class="form-label">Giờ<span class="text-danger">*</span></label>
+                <input type="time" class="form-control" id="gio" required>
+              </div>
+              <div class="mb-3">
+                <label for="diadiem" class="form-label">Địa Điểm<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="diadiem" required>
+              </div>
+              <div class="mb-3">
+                <label for="trangthai" class="form-label">Trạng Thái<span class="text-danger">*</span></label>
+                <select id="trangthai" class="form-select">
+                  <option value="dahen">Đã Hẹn</option>
+                  <option value="Huyhen">Đã Hủy Hẹn</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="saveAdvisor">Gửi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

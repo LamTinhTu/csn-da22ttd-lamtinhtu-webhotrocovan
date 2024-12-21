@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Thông Tin Cố Vấn</h1>
+    <div class="row">
+        <div class="row">
+            <div class="advisor-info">
+                <table class="info-table">
+                    <tr>
+                        <td><span class="label">Mã giảng viên:</span></td>
+                        <td><span class="value">12345678</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Họ và Tên:</span></td>
+                        <td><span class="value">Nguyễn Văn A</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Ngày Sinh</span></td>
+                        <td><span class="value">01/01/1990</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Đang cố vấn lớp:</span></td>
+                        <td><span class="value">DA22TT</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Số Điện Thoại</span></td>
+                        <td><span class="value">0339876542</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Email: </span></td>
+                        <td><span class="value">Abc@gmail.com</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Khoa:</span></td>
+                        <td><span class="value">Kỹ thuật và Công nghệ</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">Đơn Vị Công Tác:</span></td>
+                        <td><span class="value">Bộ môn Công nghệ Thông tin</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bảng -->
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>Mã Giảng Viên</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Đang Cố Vấn Lớp</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                    <th>Khoa</th>
+                    <th>Đơn Vị Công tác</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Mã Giảng Viên</th>
+                    <th>Họ và Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Đang Cố Vấn Lớp</th>
+                    <th>Số Điện Thoại</th>
+                    <th>Email</th>
+                    <th>Khoa</th>
+                    <th>Đơn Vị Công tác</th>
+                    <th>Thao Tác</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>12345678</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>01/01/1999</td>
+                    <td>DA22TT</td>
+                    <td>012346678</td>
+                    <td>Abc@gmail.com</td>
+                    <td>Kỹ thuật và Công nghệ</td>
+                    <td>Bộ môn Công nghệ Thông</td>
+                    <td>
+                        <div class="mb-3 text-end">
+                            <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal sửa thông tin -->
+    <div class="modal fade" id="addAdvisorModal" tabindex="-1" aria-labelledby="addAdvisorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAdvisorModalLabel">Sửa Thông Tin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form nhập thông tin giảng viên -->
+                    <form id="advisorForm">
+                        <div class="mb-3">
+                            <label for="maGiangVien" class="form-label">Mã Giảng Viên <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="maGiangVien" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hoTen" class="form-label">Họ và Tên <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="hoTen" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngaysinh" class="form-label">Ngày Sinh <span
+                                    class="text-danger">*</span></label>
+                            <input type="date" class="form-control" id="ngaysinh" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lopCoVan" class="form-label">Đang Cố Vấn Lớp <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lopCoVan" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="soDienThoai" class="form-label">Số Điện Thoại <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="soDienThoai" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email <span
+                                    class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="khoa" class="form-label">Khoa <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="khoa" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="donViCongTac" class="form-label">Đơn Vị Công Tác <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="donViCongTac" required>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="Vi">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="{% static 'image/logotvu.png'%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Đăng Nhập</title>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="first">
+        <from action="">
+            <h1>Đăng Nhập</h1>
+
+            <div class=" input-box">
+                <input type="text" placeholder="Tên Đăng Nhập" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class=" input-box">
+                <input type="password" placeholder="Nhập mật Khẩu" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label><input type="checkbox">Ghi Nhớ Mật Khẩu?</label>
+                <a href="quenmk.html"> Quên Mật Khẩu</a>
+            </div>
+
+            <button type="submit" class="btn"> Đăng Nhập</button>
+
+            <div class="register-link">
+                <p>Bạn chưa có tài khoản?<a href="dangky.html">Đăng Ký</a></p>
+            </div>
+        </from>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Khoa Kỹ thuật và Công nghệ.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

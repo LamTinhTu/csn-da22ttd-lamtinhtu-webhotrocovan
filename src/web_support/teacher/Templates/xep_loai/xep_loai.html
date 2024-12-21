@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Lọc-->
+<div class="mb-4">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="filterYear" class="form-label">Năm Học</label>
+            <select id="filterYear" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="2023-2024">2023-2024</option>
+                <option value="2022-2023">2022-2023</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="filterSemester" class="form-label">Học Kỳ</label>
+            <select id="filterSemester" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="Học Kì I">Học Kỳ I</option>
+                <option value="Học Kì II">Học Kỳ II</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="container-fluid px-4">
+    <!-- Bảng -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-star"></i>
+            Xếp Loại Sinh Viên
+        </div>
+
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Mã Số Sinh Viên</th>
+                        <th>Họ và Tên</th>
+                        <th>Lớp</th>
+                        <th>Điểm Trung Bình</th>
+                        <th>Năm Học</th>
+                        <th>Học Kì</th>
+                        <th>Xếp Loại</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã Số Sinh Viên</th>
+                        <th>Họ và Tên</th>
+                        <th>Lớp</th>
+                        <th>Điểm Trung Bình</th>
+                        <th>Năm Học</th>
+                        <th>Học Kì</th>
+                        <th>Xếp Loại</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>12345678</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>DA22TT</td>
+                        <td>3.60</td>
+                        <td>2023-2024</td>
+                        <td>Học Kì I</td>
+                        <td>Xuất Sắc</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mb-3 text-end">
+                <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
+                <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+                <button class="btn btn-primary text-white" id="btnDelete">Xóa</button>
+            </div>
+
+            <!-- Modal để nhập thông tin -->
+            <div class="modal fade" id="addAdvisorModal" tabindex="-1"
+                aria-labelledby="addAdvisorModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addAdvisorModalLabel">Thêm Thông Tin</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form nhập thông tin sinh viên -->
+                            <form id="advisorForm">
+                                <div class="mb-3">
+                                    <label for="maGiangVien" class="form-label">Mã Sinh Viên <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="maGiangVien" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="hoTen" class="form-label">Họ và Tên <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="hoTen" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="diemTB" class="form-label">Điểm Trung Bình <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="diemTB" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="namHoc" class="form-label">Năm Học <span
+                                            class="text-danger">*</span></label>
+                                    <select id="namHoc" class="form-select">
+                                        <option value="2023-2024">2023-2024</option>
+                                        <option value="2022-2023">2022-2023</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="hocki" class="form-label">Học Kì <span
+                                            class="text-danger">*</span></label>
+                                    <select id="hocki" class="form-select">
+                                        <option value="HockiI">Học Kì I</option>
+                                        <option value="HockiII">Học Kì II</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="xepLoai" class="form-label">Xếp Loại<span
+                                            class="text-danger">*</span></label>
+                                    <select id="xepLoai" class="form-select">
+                                        <option value="xuatsac">Xuất Sắc</option>
+                                        <option value="gioi">Giỏi</option>
+                                        <option value="kha">Khá</option>
+                                        <option value="trungbinh">Trung Bình</option>
+                                        <option value="yeu">Yếu</option>
+                                        <option value="kem">Kém</option>
+                                    </select>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Họp thoại-->
+
+            <div class="modal fade" id="notificationModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="notificationModalLabel">Thông báo</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="notificationMessage"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- họp thoại xóa -->
+            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteConfirmationLabel">Xác nhận Xóa</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn có chắc chắn muốn xóa?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="confirmDelete">Xóa</button>
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

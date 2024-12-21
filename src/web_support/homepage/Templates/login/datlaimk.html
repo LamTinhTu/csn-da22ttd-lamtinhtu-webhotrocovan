@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="Vi">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="{% static 'image/logotvu.png'%}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Đặt Lại Mật Khẩu</title>
+    <link href="{% static 'css/login.css'%}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="first4">
+        <from action="">
+            <h1>Đặt Lại Mật Khẩu</h1>
+
+            <div class=" input-box4">
+                <input type="text" placeholder="Họ và Tên" required>
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class=" input-box4">
+                <input type="text" placeholder="Mã Số Sinh Viên/ Mã Giảng Viên" required>
+                <i class='bx bxs-graduation'></i>
+            </div>
+
+            <div class=" input-box4">
+                <input type="text" placeholder="Số điện thoại" required>
+                <i class='bx bxs-phone'></i>
+            </div>
+
+            <div class=" input-box4">
+                <input type="password" placeholder="Đặt Lại Mật Khẩu" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+
+            <div class=" input-box4">
+                <input type="password" placeholder="Nhập Lại Mật Khẩu Đã Đặt" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+
+            <button type="submit" class="btn"> Cập Nhật</button>
+        </from>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Khoa Kỹ thuật và Công nghệ.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
