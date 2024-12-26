@@ -32,13 +32,13 @@
 
             <div class="remember-forgot">
                 <label><input type="checkbox">Ghi Nhớ Mật Khẩu?</label>
-                <a href="quenmk.html"> Quên Mật Khẩu</a>
+                <a href="{% url 'forgot'%}"> Quên Mật Khẩu</a>
             </div>
 
             <button type="submit" class="btn"> Đăng Nhập</button>
 
             <div class="register-link">
-                <p>Bạn chưa có tài khoản?<a href="dangky.html">Đăng Ký</a></p>
+                <p>Bạn chưa có tài khoản?<a href="{% url 'register'%}">Đăng Ký</a></p>
             </div>
         </from>
     </div>
