@@ -90,3 +90,5 @@ class Admin(models.Model):
 
     def _str_(self):
         return self.MaAD
+
+
