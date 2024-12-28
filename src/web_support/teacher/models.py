@@ -6,6 +6,10 @@ class BoMon(models.Model):
     MaBM = models.CharField(max_length=10, primary_key=True)
     TenBM = models.CharField(max_length=50)
 
+    class Meta:
+        verbose_name = 'Bộ Môn'
+        verbose_name_plural = 'Bộ Môn'
+
     def __str__(self):
         return self.TenBM
     
@@ -30,6 +34,10 @@ class Lop(models.Model):
     MaLop = models.CharField(max_length=10, primary_key=True)
     TenLop = models.CharField(max_length=50)
     bomon = models.ForeignKey(BoMon, on_delete=models.CASCADE, related_name='lops')
+
+    class Meta:
+        verbose_name = 'Lớp'
+        verbose_name_plural = 'Lớp'
 
     def __str__(self):
         return self.MaLop

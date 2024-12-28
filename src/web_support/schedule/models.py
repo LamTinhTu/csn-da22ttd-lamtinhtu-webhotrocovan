@@ -12,5 +12,9 @@ class LichHen(models.Model):
     covan = models.ForeignKey(CoVan, on_delete=models.CASCADE, related_name='lichhens')
     SinhVien = models.ForeignKey(SinhVien, on_delete = models.CASCADE, related_name='lichhens')
 
+    class Meta:
+        verbose_name = 'Lịch Hẹn'
+        verbose_name_plural = 'Lịch Hẹn'
+
     def _str_(self):
         return self.MaH

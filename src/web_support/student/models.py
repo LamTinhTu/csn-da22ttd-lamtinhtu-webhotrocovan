@@ -32,7 +32,7 @@ class XepLoai(models.Model):
 
     class Meta:
         verbose_name = 'Xếp loại'
-        verbose_name_plural = 'Xép loại'
+        verbose_name_plural = 'Xếp loại'
 
     def _str_(self):
         return self.MaXL
