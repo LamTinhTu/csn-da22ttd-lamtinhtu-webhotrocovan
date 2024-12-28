@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LANGUAGE_CODE = 'vi'  # Đặt ngôn ngữ mặc định thành tiếng Việt
+TIME_ZONE = 'Asia/Ho_Chi_Minh'  # Đặt múi giờ phù hợp với Việt Nam
+
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 # Application definition
 
@@ -39,13 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage.apps.HomepageConfig',
     'student.apps.StudentConfig',
-    'teacher.apps.TeacherConfig'
+    'teacher.apps.TeacherConfig',
+    'schedule.apps.ScheduleConfig'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',

@@ -1,0 +1,85 @@
+{% extends "student.html" %}
+{% block content %}
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  <h2 class="border-bottom pb-2 mb-0" style="color: #3340d0;   font-weight: bold;">Thông Tin Sinh Viên</h2>
+  <div class="table-container" style="padding-top:20px;">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th style="color: #0056b3">Mã Số Sinh Viên</th>
+          <td style="color: #0056b3">{{ sinhvien.MaSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Họ và Tên</th>
+          <td style="color: #0056b3">{{ sinhvien.HoTenSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Ngày Sinh</th>
+          <td style="color: #0056b3">{{ sinhvien.NgSinhSV|date:"d/m/Y" }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Đang Học Lớp</th>
+          <td style="color: #0056b3">{{ sinhvien.lop }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Số Điện Thoại</th>
+          <td style="color: #0056b3">{{ sinhvien.SDTSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Email</th>
+          <td style="color: #0056b3">{{ sinhvien.EmailSV }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="mb-3 text-end">
+      <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+    </div>
+    <div class="modal fade" id="addAdvisorModal" tabindex="-1" aria-labelledby="addAdvisorModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAdvisorModalLabel">Sửa Thông Tin</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Form nhập thông tin sinh viên -->
+            <form id="advisorForm">
+              <div class="mb-3">
+                <label for="maSinhVien" class="form-label">Mã Số Sinh Viên <span
+                    class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="maGiangVien" required>
+              </div>
+              <div class="mb-3">
+                <label for="hoTen" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="hoTen" required>
+              </div>
+              <div class="mb-3">
+                <label for="ngaysinh" class="form-label">Ngày Sinh <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" id="ngaysinh" required>
+              </div>
+              <div class="mb-3">
+                <label for="lop" class="form-label">Đang Học Lớp <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="lop" required>
+              </div>
+              <div class="mb-3">
+                <label for="soDienThoai" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="soDienThoai" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="saveAdvisor">Cập Nhật</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

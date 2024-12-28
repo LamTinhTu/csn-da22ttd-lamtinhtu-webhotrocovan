@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="modal-header">
+    <h5 class="modal-title" id="addAdvisorModalLabel">Thêm Thông Tin sinh Viên</h5>
+</div>
+<form id="advisorForm" method="post">
+    {% csrf_token %}
+<div class="modal-body">
+    
+        <div class="mb-3">
+            <label for="maSinhVien" class="form-label">Mã Số Sinh Viên <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="MaSV" name="MaSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="hoTen" class="form-label">Họ và Tên <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="HoTenSV" name="HoTenSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="ngaysinh" class="form-label">Ngày Sinh <span
+                    class="text-danger">*</span></label>
+            <input type="date" class="form-control" id="NgSinhSV" name="NgSinhSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="lop" class="form-label">Đang Học Lớp <span
+                    class="text-danger">*</span></label>
+                    <select id="lop" name="lop" class="form-control"> 
+                        <!-- Tự động thêm các tùy chọn lớp -->
+                        {% for lop in lops %}
+                        <option value="{{ lop.MaLop }}">{{ lop.MaLop }} - {{ lop.bomon }}</option>
+                        {% endfor %}
+                    </select>
+        </div>
+        <div class="mb-3">
+            <label for="soDienThoai" class="form-label">Số Điện Thoại <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="SDTSV" name="SDTSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email <span
+                    class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="EmailSV" name="EmailSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Mật khẩu <span
+                    class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="MatKhauSV" name="MatKhauSV" required>
+        </div>
+        <div class="mb-3">
+            <label for="lop" class="form-label">Cố vấn <span
+                    class="text-danger">*</span></label>
+                    <select id="covan" name="covan" class="form-control">
+                        <!-- Tự động thêm các tùy chọn cố vấn -->
+                        {% for covan in covans %}
+                        <option value="{{ covan.MaCV }}">{{ covan.HoTenCV }}</option>
+                        {% endfor %}
+                    </select>
+        </div>    
+</div>
+<div class="modal-footer mb-2">
+    <button type="submit" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+</div>
+</form>
+{% endblock content %}

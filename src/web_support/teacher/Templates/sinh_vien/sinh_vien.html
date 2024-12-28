@@ -18,7 +18,8 @@
                         <th>Đang Học Lớp</th>
                         <th>Số Điện Thoại</th>
                         <th>Email</th>
-                        <th>Trạng Thái</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -29,27 +30,28 @@
                         <th>Đang Học Lớp</th>
                         <th>Số Điện Thoại</th>
                         <th>Email</th>
-                        <th>Trạng Thái</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </tfoot>
                 <tbody>
+                    {% for sinhvien in SinhViens %}
                     <tr>
-                        <td>110122249</td>
-                        <td>Lâm Tinh Tú</td>
-                        <td>23/11/2004</td>
-                        <td>DA22TTD</td>
-                        <td>0339626863</td>
-                        <td>lttus231104@gmail.com</td>
-                        <td>Đang học</td>
+                        <td>{{ sinhvien.MaSV }}</td>
+                        <td>{{ sinhvien.HoTenSV }}</td>
+                        <td>{{ sinhvien.NgSinhSV|date:"d/m/Y" }}</td>
+                        <td>{{ sinhvien.lop }}</td>
+                        <td>{{ sinhvien.SDTSV }}</td>
+                        <td>{{ sinhvien.EmailSV }}</td>
+                        <td class="text-center"><i class="fa-solid fa-pencil"></i></td>
+                        <td class="text-center"><i class="fa-solid fa-trash"></i></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
-            <div class="mb-3 text-end">
-                <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
-                <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
-                <button class="btn btn-primary text-white" id="btnDelete">Xóa</button>
-            </div>
+            
         </div>
+        
 
         <!-- Modal sửa thông tin -->
         <div class="modal fade" id="addAdvisorModal" tabindex="-1"
@@ -109,10 +111,12 @@
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Đóng</button>
                         <button type="button" class="btn btn-primary" id="saveAdvisor">Lưu</button>
-
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="mb-3 text-end">
+        <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
     </div>
 {% endblock content %}
