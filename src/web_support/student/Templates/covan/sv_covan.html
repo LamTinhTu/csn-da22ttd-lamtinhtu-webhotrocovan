@@ -1,4 +1,5 @@
 {% extends "student.html" %}
+{% block covanurl %}active{% endblock covanurl %}
 {% block content %}
 <div class="my-3 p-3 bg-body rounded shadow-sm">
   <h2 class="border-bottom pb-2 mb-0" style="color: #3340d0;   font-weight: bold;">Thông Tin Cố Vấn</h2>
@@ -7,27 +8,27 @@
       <tbody>
         <tr>
           <th style="color: #0056b3">Mã Giảng Viên</th>
-          <td style="color: #0056b3">12345678</td>
+          <td style="color: #0056b3">{{ covan.MaCV }}</td>
         </tr>
         <tr>
           <th style="color: #0056b3">Họ và Tên</th>
-          <td style="color: #0056b3">Nguyễn Văn A</td>
+          <td style="color: #0056b3">{{ covan.HoTenCV }}</td>
         </tr>
         <tr>
           <th style="color: #0056b3">Ngày Sinh</th>
-          <td style="color: #0056b3">01/01/1990</td>
+          <td style="color: #0056b3">{{ covan.NgSinhCV }}</td>
         </tr>
         <tr>
           <th style="color: #0056b3">Đang Cố Vấn Lớp</th>
-          <td style="color: #0056b3">DA22TT</td>
+          <td style="color: #0056b3"></td>
         </tr>
         <tr>
           <th style="color: #0056b3">Số Điện Thoại</th>
-          <td style="color: #0056b3">0339876542</td>
+          <td style="color: #0056b3">{{ covan.SDTCV }}</td>
         </tr>
         <tr>
           <th style="color: #0056b3">Email</th>
-          <td style="color: #0056b3">Abc@gmail.com</td>
+          <td style="color: #0056b3">{{ covan.EmailCV }}</td>
         </tr>
         <tr>
           <th style="color: #0056b3">Khoa</th>
@@ -35,7 +36,7 @@
         </tr>
         <tr>
           <th style="color: #0056b3">Đơn Vị Công Tác</th>
-          <td style="color: #0056b3">Bộ môn Công nghệ Thông tin</td>
+          <td style="color: #0056b3">Bộ môn {{ covan.bomon }}</td>
         </tr>
       </tbody>
     </table>

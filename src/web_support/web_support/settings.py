@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
     'student.apps.StudentConfig',
     'teacher.apps.TeacherConfig',
-    'schedule.apps.ScheduleConfig'
+    'schedule.apps.ScheduleConfig',
+    'rate.apps.RateConfig'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,13 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', 
+)
+AUTH_USER_MODEL = 'homepage.User'
+
+LOGIN_URL = '/login/'

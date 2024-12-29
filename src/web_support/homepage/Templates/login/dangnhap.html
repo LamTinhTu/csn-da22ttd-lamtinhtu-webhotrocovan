@@ -15,41 +15,41 @@
 </head>
 
 <body>
-
+    {% block content %}
     <div class="first">
-        <from action="">
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
             <h1>Đăng Nhập</h1>
 
-            <div class=" input-box">
-                <input type="text" placeholder="Tên Đăng Nhập" required>
+            <div class="input-box">
+                <input type="text" name="tai_khoan" placeholder="Tên Đăng Nhập" required>
                 <i class='bx bxs-user'></i>
             </div>
 
-            <div class=" input-box">
-                <input type="password" placeholder="Nhập mật Khẩu" required>
+            <div class="input-box">
+                <input type="password" name="mat_khau" placeholder="Nhập mật Khẩu" required>
                 <i class='bx bxs-lock'></i>
             </div>
 
             <div class="remember-forgot">
-                <label><input type="checkbox">Ghi Nhớ Mật Khẩu?</label>
-                <a href="{% url 'forgot'%}"> Quên Mật Khẩu</a>
+
+                <a href="{% url 'forgot' %}">Quên Mật Khẩu</a>
             </div>
 
-            <button type="submit" class="btn"> Đăng Nhập</button>
+            <button type="submit" class="btn">Đăng Nhập</button>
 
-            <div class="register-link">
-                <p>Bạn chưa có tài khoản?<a href="{% url 'register'%}">Đăng Ký</a></p>
-            </div>
-        </from>
+            {% comment %} <div class="register-link">
+                <p>Bạn chưa có tài khoản? <a href="{% url 'register' %}">Đăng Ký</a></p>
+            </div> {% endcomment %}
+        </form>
     </div>
-
 
     <footer>
         <div class="footer-content">
             <p>&copy; Khoa Kỹ thuật và Công nghệ.</p>
         </div>
     </footer>
-
+    {% endblock %}
 </body>
 
 </html>

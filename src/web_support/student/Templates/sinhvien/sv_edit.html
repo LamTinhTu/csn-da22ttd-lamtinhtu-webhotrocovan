@@ -1,0 +1,45 @@
+{% extends "student.html" %}
+{% block content %}
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+<div class="modal-content">
+<div class="modal-header">
+    <h5 class="modal-title" id="addAdvisorModalLabel">Sửa thông tin sinh viên</h5>
+  </div>
+  <form id="advisorForm" method="post">
+    {% csrf_token %}
+  <div class="modal-body">
+    <!-- Form nhập thông tin sinh viên -->
+      
+      <div class="mb-3">
+        <label for="maSinhVien" class="form-label">Mã Số Sinh Viên</label>
+        <input type="text" class="form-control" id="SinhVien" name="SinhVien" value="110122249" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="tenbuoihen" class="form-label">Họ và Tên<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="TenBuoiHen" name="TenBuoiHen" value="Lâm Tinh Tú" required>
+      </div>
+      <div class="mb-3">
+        <label for="ngay" class="form-label">Ngày sinh<span class="text-danger">*</span></label>
+        <input type="date" class="form-control" id="NgayHen" name="NgayHen" value="2004-11-23" required>
+      </div>
+      <div class="mb-3">
+        <label for="gio" class="form-label">Học lớp<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="GioHen" name="GioHen" value="DA22TTD" required>
+      </div>
+      <div class="mb-3">
+        <label for="diadiem" class="form-label">Số Điện Thoại<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="DiaDiem" name="DiaDiem" value="034234677" required>
+      </div>
+      <div class="mb-3">
+        <label for="diadiem" class="form-label">Email<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="DiaDiem" name="DiaDiem" value="tu@email.com" required>
+      </div>
+    
+  </div>
+  <div class="modal-footer">
+    <button type="buuton" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+  </div>
+</form>
+</div>
+{% endblock content %}
+</div>

@@ -18,8 +18,8 @@
                         <th>Đang Học Lớp</th>
                         <th>Số Điện Thoại</th>
                         <th>Email</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -30,12 +30,12 @@
                         <th>Đang Học Lớp</th>
                         <th>Số Điện Thoại</th>
                         <th>Email</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    {% for sinhvien in SinhViens %}
+                    {% for sinhvien in ds_sinhvien %}
                     <tr>
                         <td>{{ sinhvien.MaSV }}</td>
                         <td>{{ sinhvien.HoTenSV }}</td>
@@ -43,8 +43,8 @@
                         <td>{{ sinhvien.lop }}</td>
                         <td>{{ sinhvien.SDTSV }}</td>
                         <td>{{ sinhvien.EmailSV }}</td>
-                        <td class="text-center"><i class="fa-solid fa-pencil"></i></td>
-                        <td class="text-center"><i class="fa-solid fa-trash"></i></td>
+                        <td class="text-center"><a class="btn py-0" href="{% url 'sv_edit' sinhvien.pk %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+                        <td class="text-center"><i class="fa-solid fa-trash"></i> Xóa</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -117,6 +117,6 @@
         </div>
     </div>
     <div class="mb-3 text-end">
-        <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
+        <a class="btn btn-primary text-white me-2" href="{% url 'sv_create' %}">Thêm</a>
     </div>
 {% endblock content %}

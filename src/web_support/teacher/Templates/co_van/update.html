@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="modal-header">
+    <h5 class="modal-title" id="addAdvisorModalLabel">Cập Nhật Thông Tin Cố vấn</h5>
+</div>
+<form id="advisorForm" method="post">
+    {% csrf_token %}
+<div class="modal-body">
+    
+        <div class="mb-3">
+            <label for="MaCV" class="form-label">Mã Số cố vấn <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="MaCV" name="MaCV" value="{{ covan.MaCV }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="hoTen" class="form-label">Họ và Tên <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="HoTenCV" name="HoTenCV" value="{{ covan.HoTenCV }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="ngaysinh" class="form-label">Ngày Sinh <span
+                    class="text-danger">*</span></label>
+            <input type="date" class="form-control" id="NgSinhCV" name="NgSinhCV" value="{{ covan.NgSinhCV|date:"Y-m-d" }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="lop" class="form-label">Đang Cố Vấn Lớp <span
+                    class="text-danger">*</span></label>
+                    <select id="lop" class="form-control"> 
+                        <!-- Tự động thêm các tùy chọn lớp -->
+                        {% for lop in lops %}
+                        <option value="{{ lop.MaLop }}">{{ lop.MaLop }} - {{ lop.bomon }}</option>
+                        {% endfor %}
+                    </select>
+        </div>
+        <div class="mb-3">
+            <label for="soDienThoai" class="form-label">Số Điện Thoại <span
+                    class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="SDTCV" name="SDTCV" value="{{ covan.SDTCV }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email <span
+                    class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="EmailCV" name="EmailCV" value="{{ covan.EmailCV }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="Khoa" class="form-label">Khoa <span
+                    class="text-danger">*</span></label>
+            <input type="email" class="form-control" id="Khoa" value="Kỹ thuật công nghệ" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="lop" class="form-label">Đơn Vị Công Tác <span
+                    class="text-danger">*</span></label>
+                    <select id="bomon" name="bomon" class="form-control">
+                        <!-- Tự động thêm các tùy chọn cố vấn -->
+                        {% for bomon in bomons %}
+                        <option value="{{ bomon.MaBM }}">{{ bomon.TenBM }}</option>
+                        {% endfor %}
+                    </select>
+        </div>    
+</div>
+<div class="modal-footer mb-2">
+    <button type="submit" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+</div>
+</form>
+{% endblock content %}

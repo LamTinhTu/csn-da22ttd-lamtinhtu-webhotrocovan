@@ -146,7 +146,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Tài Khoản</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Đăng Xuất</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout_sv' %}">Đăng Xuất</a></li>
             </ul>
           </li>
         </ul>
@@ -161,7 +161,7 @@
   <div class="nav-scroller bg-body shadow-sm"
     style="background-color: #ce946a !important; padding-left: 2%; padding-top: 10px; justify-items: center; height:60px;">
     <nav class="nav" aria-label="Secondary navigation">
-      <a class="nav-link active" style="color: rgb(44, 61, 195); padding-right: 80px; font-size: 20px;"
+      <a class="nav-link" style="color: white; padding-right: 80px; font-size: 20px;"
         aria-current="page" href="{% url 'student' %}">Thông Tin</a>
       <a class="nav-link" href="{% url 'covan' %}" style="color: white; padding-right: 80px; font-size: 20px;">Cố Vấn</a>
       <a class="nav-link" href="{% url 'xeploai' %}" style="color: white; padding-right: 80px; font-size: 20px;">Xếp Loại</a>

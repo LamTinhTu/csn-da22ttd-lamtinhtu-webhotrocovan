@@ -1,26 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<!--Lọc-->
-<div class="mb-4">
-    <div class="row">
-        <div class="col-md-6">
-            <label for="filterYear" class="form-label">Năm Học</label>
-            <select id="filterYear" class="form-select">
-                <option value="">Tất cả</option>
-                <option value="2023-2024">2023-2024</option>
-                <option value="2022-2023">2022-2023</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="filterSemester" class="form-label">Học Kỳ</label>
-            <select id="filterSemester" class="form-select">
-                <option value="">Tất cả</option>
-                <option value="Học Kì I">Học Kỳ I</option>
-                <option value="Học Kì II">Học Kỳ II</option>
-            </select>
-        </div>
-    </div>
-</div>
 <div class="container-fluid px-4">
     <!-- Bảng -->
     <div class="card mb-4">
@@ -40,6 +19,8 @@
                         <th>Năm Học</th>
                         <th>Học Kì</th>
                         <th>Xếp Loại</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -51,24 +32,28 @@
                         <th>Năm Học</th>
                         <th>Học Kì</th>
                         <th>Xếp Loại</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </tfoot>
-                <tbody>
+                {% for sv_xl in sv_xls %}
                     <tr>
-                        <td>12345678</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>DA22TT</td>
+                        <td>{{ sv_xl.sinhvien.MaSV }}</td>
+                        <td>{{ sv_xl.sinhvien.HoTenSV }}</td>
+                        <td>{{ sv_xl.sinhvien.lop }}</td>
                         <td>3.60</td>
-                        <td>2023-2024</td>
-                        <td>Học Kì I</td>
-                        <td>Xuất Sắc</td>
+                        <td>{{ sv_xl.NamXL }}</td>
+                        <td>{{ sv_xl.HocKyXL }}</td>
+                        <td>{{ sv_xl.xeploai.TenXL }}</td>
+                        <td class="text-center"><i class="fa-solid fa-pencil"></i></td>
+                        <td class="text-center"><i class="fa-solid fa-trash"></i></td>
                     </tr>
-                </tbody>
+                {% endfor %}
             </table>
             <div class="mb-3 text-end">
                 <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
-                <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
-                <button class="btn btn-primary text-white" id="btnDelete">Xóa</button>
+                {% comment %} <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+                <button class="btn btn-primary text-white" id="btnDelete">Xóa</button> {% endcomment %}
             </div>
 
             <!-- Modal để nhập thông tin -->

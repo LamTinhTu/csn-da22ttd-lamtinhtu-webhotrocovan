@@ -8,15 +8,15 @@
                 <table class="info-table">
                     <tr>
                         <td><span class="label">Mã giảng viên:</span></td>
-                        <td><span class="value">12345678</span></td>
+                        <td><span class="value">{{ covan.MaCV }}</span></td>
                     </tr>
                     <tr>
                         <td><span class="label">Họ và Tên:</span></td>
-                        <td><span class="value">Nguyễn Văn A</span></td>
+                        <td><span class="value">{{ covan.HoTenCV }}</span></td>
                     </tr>
                     <tr>
                         <td><span class="label">Ngày Sinh</span></td>
-                        <td><span class="value">01/01/1990</span></td>
+                        <td><span class="value">{{ covan.NgSinhCV|date:"d/m/Y" }}</span></td>
                     </tr>
                     <tr>
                         <td><span class="label">Đang cố vấn lớp:</span></td>
@@ -24,11 +24,11 @@
                     </tr>
                     <tr>
                         <td><span class="label">Số Điện Thoại</span></td>
-                        <td><span class="value">0339876542</span></td>
+                        <td><span class="value">{{ covan.SDTCV }}</span></td>
                     </tr>
                     <tr>
                         <td><span class="label">Email: </span></td>
-                        <td><span class="value">Abc@gmail.com</span></td>
+                        <td><span class="value">{{ covan.EmailCV }}</span></td>
                     </tr>
                     <tr>
                         <td><span class="label">Khoa:</span></td>
@@ -36,7 +36,7 @@
                     </tr>
                     <tr>
                         <td><span class="label">Đơn Vị Công Tác:</span></td>
-                        <td><span class="value">Bộ môn Công nghệ Thông tin</span></td>
+                        <td><span class="value">Bộ môn {{ covan.bomon }}</span></td>
                     </tr>
                 </table>
             </div>
@@ -113,6 +113,6 @@
     </div>
 </div>
 <div class="mb-3 text-end" style = "padding-right: 30px;">
-    <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+    <a class="btn btn-primary text-white me-2" href="{% url 'cv_edit' covan.pk %}">Sửa</a>
 </div>
 {% endblock content %}

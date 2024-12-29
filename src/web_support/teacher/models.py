@@ -1,4 +1,8 @@
 from django.db import models
+from django.urls import reverse
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from homepage.models import User
 
 # Create your models here.
 
@@ -22,6 +26,7 @@ class CoVan(models.Model):
     EmailCV = models.CharField(max_length=50)
     MatKhauCV = models.CharField(max_length=50)
     bomon = models.ForeignKey(BoMon, on_delete=models.CASCADE, related_name='covans')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='covan', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Cố vấn'
@@ -29,6 +34,22 @@ class CoVan(models.Model):
 
     def __str__(self):
         return self.HoTenCV[:50]
+    
+    def get_absolute_url(self):
+        return reverse("cv_detail", kwargs={"pk": self.MaCV})
+    
+@receiver(post_save, sender=CoVan)
+def create_user_for_sinhvien(sender, instance, created, **kwargs):
+    if created:
+        if not instance.user:
+            user = User.objects.create_user(
+                username=instance.MaCV,
+                password=instance.NgSinhCV.strftime('%d%m%Y'),  # Định dạng ngày sinh làm mật khẩu (yyyyMMdd)
+            )
+            user.is_teacher = True
+            user.save()
+            instance.user = user
+            instance.save()
     
 class Lop(models.Model):
     MaLop = models.CharField(max_length=10, primary_key=True)

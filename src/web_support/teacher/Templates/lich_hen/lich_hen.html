@@ -42,42 +42,45 @@
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Mã Số Giảng Viên</th>
-                        <th>Mã Số Sinh Viên</th>
+                        <th>Sinh Viên</th>
                         <th>Tên Buổi Hẹn</th>
                         <th>Ngày </th>
                         <th>Giờ</th>
                         <th>Địa Điểm</th>
                         <th>Trạng Thái</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Mã Số Giảng Viên</th>
-                        <th>Mã Số Sinh Viên</th>
+                        <th>Sinh Viên</th>
                         <th>Tên Buổi Hẹn</th>
                         <th>Ngày </th>
                         <th>Giờ</th>
                         <th>Địa Điểm</th>
                         <th>Trạng Thái</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </tfoot>
                 <tbody>
+                    {% for lichhen in ds_lichhen %}
                     <tr>
-                        <td>12345678</td>
-                        <td>14567894</td>
-                        <td>Trao đổi CSN</td>
-                        <td>10/10/2024</td>
-                        <td>04:00 PM</td>
-                        <td>C71.106</td>
-                        <td>Đã hẹn</td>
+                        <td>{{ lichhen.SinhVien }}</td>
+                        <td>{{ lichhen.TenBuoiHen }}</td>
+                        <td>{{ lichhen.NgayHen }}</td>
+                        <td>{{ lichhen.GioHen }}</td>
+                        <td>{{ lichhen.DiaDiem }}</td>
+                        <td>{{ lichhen.TrangThai }}</td>
+                        <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cv_lh_edit' %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+                        <td style="color: #0056b3"><a class="btn py-0"><i class="fa-solid fa-trash"></i> Hủy</a></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             <div class="mb-3 text-end">
-                <button class="btn btn-primary text-white me-2" id="btnAdd">Hẹn</button>
-                <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
-                <button class="btn btn-primary text-white" id="btnDelete">Hủy Hẹn</button>
+                <a class="btn btn-primary text-white me-2" href="{% url 'cv_lh_create'%}">Hẹn</a>
             </div>
         </div>
 

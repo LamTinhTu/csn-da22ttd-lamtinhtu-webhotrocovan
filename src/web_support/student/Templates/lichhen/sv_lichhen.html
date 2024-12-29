@@ -41,8 +41,10 @@
           <th style="color: #0056b3">Giờ</th>
           <th style="color: #0056b3">Địa Điểm</th>
           <th style="color: #0056b3">Trạng Thái</th>
+          <th style="color: #0056b3"></th>
+          <th style="color: #0056b3"></th>
         </tr>
-        <tr>
+        {% comment %} <tr>
           <td style="color: #0056b3">110122249</td>
           <td style="color: #0056b3">110125485</td>
           <td style="color: #0056b3">Trao đổi CSN</td>
@@ -50,13 +52,24 @@
           <td style="color: #0056b3">16:00 PM</td>
           <td style="color: #0056b3">C71.102</td>
           <td style="color: #0056b3">Đã Hẹn</td>
+        </tr> {% endcomment %}
+        {% for lichhen in ds_lichhen %}
+        <tr>
+          <td style="color: #0056b3">{{ lichhen.covan }}</td>
+          <td style="color: #0056b3">{{ lichhen.SinhVien }}</td>
+          <td style="color: #0056b3">{{ lichhen.TenBuoiHen }}</td>
+          <td style="color: #0056b3">{{ lichhen.NgayHen|date:"d/m/Y" }}</td>
+          <td style="color: #0056b3">{{ lichhen.GioHen }}</td>
+          <td style="color: #0056b3">{{ lichhen.DiaDiem }}</td>
+          <td style="color: #0056b3">{{ lichhen.TrangThai }}</td>
+          <td style="color: #0056b3"><a class="btn py-0" href="{% url 'sv_lh_edit' %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+          <td style="color: #0056b3"><a class="btn py-0"><i class="fa-solid fa-trash"></i> Hủy</a></td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
     <div class="mb-3 text-end" style="padding-top: 10px;">
-      <button class="btn btn-primary text-white me-2" id="btnAdd">Hẹn</button>
-      <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
-      <button class="btn btn-primary text-white" id="btnDelete">Hủy Hẹn</button>
+      <a class="btn btn-primary text-white me-2" href="{% url 'sv_lh_create' %}">Hẹn</a>
     </div>
     <div class="modal fade" id="addAdvisorModal" tabindex="-1" aria-labelledby="addAdvisorModalLabel"
       aria-hidden="true">

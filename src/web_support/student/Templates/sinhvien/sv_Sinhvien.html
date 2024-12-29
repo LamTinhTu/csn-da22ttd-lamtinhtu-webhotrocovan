@@ -3,7 +3,7 @@
 <div class="my-3 p-3 bg-body rounded shadow-sm">
   <h2 class="border-bottom pb-2 mb-0" style="color: #3340d0;   font-weight: bold;">Thông Tin Sinh Viên</h2>
   <div class="table-container" style="padding-top:20px;">
-    <table class="table">
+    {% comment %} <table class="table">
       <tbody>
         <tr>
           <th style="color: #0056b3">Mã Số Sinh Viên</th>
@@ -34,9 +34,37 @@
           <td style="color: #0056b3">Đang Học</td>
         </tr>
       </tbody>
+    </table> {% endcomment %}
+    <table class="table">
+      <tbody>
+        <tr>
+          <th style="color: #0056b3">Mã Số Sinh Viên</th>
+          <td style="color: #0056b3">{{ sinhvien.MaSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Họ và Tên</th>
+          <td style="color: #0056b3">{{ sinhvien.HoTenSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Ngày Sinh</th>
+          <td style="color: #0056b3">{{ sinhvien.NgSinhSV|date:"d/m/Y" }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Đang Học Lớp</th>
+          <td style="color: #0056b3">{{ sinhvien.lop }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Số Điện Thoại</th>
+          <td style="color: #0056b3">{{ sinhvien.SDTSV }}</td>
+        </tr>
+        <tr>
+          <th style="color: #0056b3">Email</th>
+          <td style="color: #0056b3">{{ sinhvien.EmailSV }}</td>
+        </tr>
+      </tbody>
     </table>
     <div class="mb-3 text-end">
-      <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
+      <a class="btn btn-primary text-white me-2" href="{% url 'sv_edit_self' %}">Sửa</a>
     </div>
     <div class="modal fade" id="addAdvisorModal" tabindex="-1" aria-labelledby="addAdvisorModalLabel"
       aria-hidden="true">

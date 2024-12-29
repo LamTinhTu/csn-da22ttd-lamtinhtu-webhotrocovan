@@ -26,8 +26,7 @@
             <label for="lop" class="form-label">Đang Học Lớp <span
                     class="text-danger">*</span></label>
                     <select id="lop" name="lop" class="form-control"> 
-                        <!-- Tự động thêm các tùy chọn lớp -->
-                        {% for lop in lops %}
+                        {% for lop in ds_lop %}
                         <option value="{{ lop.MaLop }}">{{ lop.MaLop }} - {{ lop.bomon }}</option>
                         {% endfor %}
                     </select>
@@ -47,16 +46,7 @@
                     class="text-danger">*</span></label>
             <input type="email" class="form-control" id="MatKhauSV" name="MatKhauSV" required>
         </div>
-        <div class="mb-3">
-            <label for="lop" class="form-label">Cố vấn <span
-                    class="text-danger">*</span></label>
-                    <select id="covan" name="covan" class="form-control">
-                        <!-- Tự động thêm các tùy chọn cố vấn -->
-                        {% for covan in covans %}
-                        <option value="{{ covan.MaCV }}">{{ covan.HoTenCV }}</option>
-                        {% endfor %}
-                    </select>
-        </div>    
+        <input type="hidden" id="covan" name="covan" value="{{ covan.MaCV }}" />  
 </div>
 <div class="modal-footer mb-2">
     <button type="submit" class="btn btn-primary" id="saveAdvisor">Lưu</button>
