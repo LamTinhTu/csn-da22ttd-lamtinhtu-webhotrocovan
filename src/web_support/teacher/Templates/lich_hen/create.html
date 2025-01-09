@@ -15,7 +15,7 @@
     <div class="mb-3">
         <label for="lop" class="form-label">Sinh viên <span
                 class="text-danger">*</span></label>
-                <select id="SinhVien" name="SinhVien" class="form-control" > 
+                <select id="sinhvien" name="sinhvien" class="form-control" > 
                     <!-- Tự động thêm các tùy chọn lớp -->
                     {% for sinhvien in ds_sinhvien %}
                     <option value="{{ sinhvien.MaSV }}">{{ sinhvien.MaSV }} - {{ sinhvien.HoTenSV }} - {{ sinhvien.lop }}</option>
@@ -23,26 +23,26 @@
                 </select>
     </div>
       <div class="mb-3">
-        <label for="tenbuoihen" class="form-label">Tên Buổi Hẹn<span class="text-danger">*</span></label>
+        <label for="tenbuoihen" class="form-label">Tên Buổi Hẹn <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="TenBuoiHen" name="TenBuoiHen" required>
       </div>
       <div class="mb-3">
-        <label for="ngay" class="form-label">Ngày<span class="text-danger">*</span></label>
-        <input type="date" class="form-control" id="NgayHen" name="NgayHen" required>
+        <label for="ngay" class="form-label">Ngày <span class="text-danger">*</span></label>
+        <input type="date" class="form-control" id="NgayHen" name="NgayHen" min="{{ min_date|date:"Y-m-d" }}" required>
       </div>
       <div class="mb-3">
-        <label for="gio" class="form-label">Giờ<span class="text-danger">*</span></label>
-        <input type="time" class="form-control" id="GioHen" name="GioHen" required>
+        <label for="gio" class="form-label">Giờ <span class="text-danger">*</span></label>
+        <input type="time" class="form-control" id="GioHen" name="GioHen" min="{{ min_time }}" required>
       </div>
       <div class="mb-3">
-        <label for="diadiem" class="form-label">Địa Điểm<span class="text-danger">*</span></label>
+        <label for="diadiem" class="form-label">Địa Điểm <span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="DiaDiem" name="DiaDiem" required>
       </div>
       <input type="hidden" id="TrangThai" name="TrangThai" value="Đã xác nhận" />
     
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-primary" id="saveAdvisor">Gửi</button>
+    <button type="submit" class="btn btn-primary" id="saveAdvisor">Thêm</button>
   </div>
 </form>
 </div>

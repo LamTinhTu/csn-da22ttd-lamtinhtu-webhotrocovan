@@ -5,61 +5,44 @@
 </div>
 <form id="advisorForm" method="post">
     {% csrf_token %}
-<div class="modal-body">
-    
+<div class="modal-body">    
         <div class="mb-3">
             <label for="MaCV" class="form-label">Mã Số cố vấn <span
                     class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="MaCV" name="MaCV" value="{{ covan.MaCV }}" required>
+            <input type="text" class="form-control" id="MaCV" name="MaCV" value="{{ covan.MaCV }}" readonly>
         </div>
         <div class="mb-3">
-            <label for="hoTen" class="form-label">Họ và Tên <span
-                    class="text-danger">*</span></label>
+            <label for="HoTenCV" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="HoTenCV" name="HoTenCV" value="{{ covan.HoTenCV }}" required>
         </div>
         <div class="mb-3">
-            <label for="ngaysinh" class="form-label">Ngày Sinh <span
-                    class="text-danger">*</span></label>
-            <input type="date" class="form-control" id="NgSinhCV" name="NgSinhCV" value="{{ covan.NgSinhCV|date:"Y-m-d" }}" required>
+            <label for="NgSinhCV" class="form-label">Ngày Sinh <span class="text-danger">*</span></label>
+            <input type="date" class="form-control" max="{{ curr_year }}-01-01" id="NgSinhCV" name="NgSinhCV" value="{{ covan.NgSinhCV|date:"Y-m-d" }}" required>
         </div>
         <div class="mb-3">
-            <label for="lop" class="form-label">Đang Cố Vấn Lớp <span
-                    class="text-danger">*</span></label>
-                    <select id="lop" class="form-control"> 
-                        <!-- Tự động thêm các tùy chọn lớp -->
-                        {% for lop in lops %}
-                        <option value="{{ lop.MaLop }}">{{ lop.MaLop }} - {{ lop.bomon }}</option>
-                        {% endfor %}
-                    </select>
+            <label for="LopQuanLy" class="form-label">Đang Cố Vấn Lớp <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="LopQuanLy" name="LopQuanLy" value="{{ covan.LopQuanLy }}" readonly>
         </div>
         <div class="mb-3">
-            <label for="soDienThoai" class="form-label">Số Điện Thoại <span
-                    class="text-danger">*</span></label>
+            <label for="SDTCV" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="SDTCV" name="SDTCV" value="{{ covan.SDTCV }}" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email <span
-                    class="text-danger">*</span></label>
+            <label for="EmailCV" class="form-label">Email <span class="text-danger">*</span></label>
             <input type="email" class="form-control" id="EmailCV" name="EmailCV" value="{{ covan.EmailCV }}" required>
         </div>
         <div class="mb-3">
-            <label for="Khoa" class="form-label">Khoa <span
-                    class="text-danger">*</span></label>
-            <input type="email" class="form-control" id="Khoa" value="Kỹ thuật công nghệ" readonly>
+            <label for="Khoa" class="form-label">Khoa <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="Khoa" value="Kỹ thuật công nghệ" readonly>
         </div>
         <div class="mb-3">
-            <label for="lop" class="form-label">Đơn Vị Công Tác <span
-                    class="text-danger">*</span></label>
-                    <select id="bomon" name="bomon" class="form-control">
-                        <!-- Tự động thêm các tùy chọn cố vấn -->
-                        {% for bomon in bomons %}
-                        <option value="{{ bomon.MaBM }}">{{ bomon.TenBM }}</option>
-                        {% endfor %}
-                    </select>
+            <label for="tenbm" class="form-label">Đơn Vị Công Tác <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="tenbm" value="{{ covan.bomon.TenBM }}" readonly>
+            <input type="hidden" id="bomon" name="bomon" value="{{ covan.bomon.MaBM }}">
         </div>    
 </div>
 <div class="modal-footer mb-2">
-    <button type="submit" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+    <button type="submit" class="btn btn-primary">Lưu</button>
 </div>
 </form>
 {% endblock content %}

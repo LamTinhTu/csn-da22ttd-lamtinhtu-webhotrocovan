@@ -19,7 +19,9 @@
             <div class="modal-body">
                 <!-- Danh sách tin nhắn -->
                 <ul id="messageList" class="list-group">
-                    <!--Nơi chưas tin nhắn-->
+                    {% for thongbao in ds_thongbao %}
+                    <li>{{ thongbao.NoiDung }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="modal-footer">
@@ -67,14 +69,14 @@
                 <tbody>
                     {% for lichhen in ds_lichhen %}
                     <tr>
-                        <td>{{ lichhen.SinhVien }}</td>
+                        <td>{{ lichhen.sinhvien.HoTenSV }} - {{ lichhen.sinhvien.MaSV }}</td>
                         <td>{{ lichhen.TenBuoiHen }}</td>
-                        <td>{{ lichhen.NgayHen }}</td>
+                        <td>{{ lichhen.NgayHen|date:"d/m/Y" }}</td>
                         <td>{{ lichhen.GioHen }}</td>
                         <td>{{ lichhen.DiaDiem }}</td>
                         <td>{{ lichhen.TrangThai }}</td>
-                        <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cv_lh_edit' %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
-                        <td style="color: #0056b3"><a class="btn py-0"><i class="fa-solid fa-trash"></i> Hủy</a></td>
+                        <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cv_lh_edit' lichhen.pk %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+                        <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cancel_cv' lichhen.pk %}"><i class="fa-solid fa-trash"></i> Hủy</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

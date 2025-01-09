@@ -44,7 +44,7 @@
                         <td>{{ sinhvien.SDTSV }}</td>
                         <td>{{ sinhvien.EmailSV }}</td>
                         <td class="text-center"><a class="btn py-0" href="{% url 'sv_edit' sinhvien.pk %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
-                        <td class="text-center"><i class="fa-solid fa-trash"></i> Xóa</td>
+                        <td class="text-center"><a class="btn py-0" href="{% url 'sv_delete' sinhvien.pk %}"><i class="fa-solid fa-trash"></i> Xóa</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

@@ -4,44 +4,44 @@
 <div class="modal-content">
 <div class="modal-header">
     <h5 class="modal-title" id="addAdvisorModalLabel">Sửa Lịch Hẹn</h5>
-  </div>
-  <form id="advisorForm" method="post">
-    {% csrf_token %}
-  <div class="modal-body">
-    <!-- Form nhập thông tin sinh viên -->
-    <input type="hidden" id="MaH" name="MaH" value="{{ MaLH }}"/>
-    <input type="hidden" id="covan" name="covan" value="{{ covan.MaCV }}"/>
-      <div class="mb-3">
-        <label for="maGiangVien" class="form-label">Giảng viên</label>
-        <input type="text" class="form-control" value="Đoàn Phước Miền">
-      </div>
-      <div class="mb-3">
-        <label for="maSinhVien" class="form-label">Mã Số Sinh Viên</label>
-        <input type="text" class="form-control" id="SinhVien" name="SinhVien" value="110122249">
-      </div>
-      <div class="mb-3">
-        <label for="tenbuoihen" class="form-label">Tên Buổi Hẹn<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="TenBuoiHen" name="TenBuoiHen" value="Hẹn gặp mặt" required>
-      </div>
-      <div class="mb-3">
-        <label for="ngay" class="form-label">Ngày<span class="text-danger">*</span></label>
-        <input type="date" class="form-control" id="NgayHen" name="NgayHen" value="2025-01-01" required>
-      </div>
-      <div class="mb-3">
-        <label for="gio" class="form-label">Giờ<span class="text-danger">*</span></label>
-        <input type="time" class="form-control" id="GioHen" name="GioHen" value="09:30" required>
-      </div>
-      <div class="mb-3">
-        <label for="diadiem" class="form-label">Địa Điểm<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="DiaDiem" name="DiaDiem" value="C71.102" required>
-      </div>
-      <input type="hidden" id="TrangThai" name="TrangThai" value="Đã xác nhận" />
-    
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" id="saveAdvisor">Lưu</button>
-  </div>
-</form>
+</div>
+      <form id="advisorForm" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <!-- Form nhập thông tin sinh viên -->
+          <input type="hidden" id="MaH" name="MaH" value="{{ lichhen.MaH }}"/>
+          <input type="hidden" id="covan" name="covan" value="{{ covan.MaCV }}"/>
+          <input type="hidden" id="sinhvien" name="sinhvien" value="{{ sinhvien.MaSV }}"/>
+            <div class="mb-3">
+              <label for="maGiangVien" class="form-label">Giảng viên</label>
+              <input type="text" class="form-control" value="{{ covan.HoTenCV }}" readonly />
+            </div>
+            <div class="mb-3">
+              <label for="TenBuoiHen" class="form-label">Tên Buổi Hẹn <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="TenBuoiHen" name="TenBuoiHen" value="{{ lichhen.TenBuoiHen }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="NgayHen" class="form-label">Ngày <span class="text-danger">*</span></label>
+              <input type="date" class="form-control" id="NgayHen" name="NgayHen" value="{{ lichhen.NgayHen|date:"Y-m-d" }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="GioHen" class="form-label">Giờ <span class="text-danger">*</span></label>
+              <input type="time" class="form-control" id="GioHen" name="GioHen" value="{{ lichhen.GioHen }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="DiaDiem" class="form-label">Địa Điểm <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="DiaDiem" name="DiaDiem" value="{{ lichhen.DiaDiem }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="TrangThai" class="form-label">Trạng thái <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="TrangThai" name= "TrangThai" value= "{{ lichhen.TrangThai }}" readonly />
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+      </form>
+    </div>
 </div>
 {% endblock content %}
-</div>

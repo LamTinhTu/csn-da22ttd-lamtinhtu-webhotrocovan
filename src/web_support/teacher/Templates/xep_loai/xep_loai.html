@@ -19,8 +19,8 @@
                         <th>Năm Học</th>
                         <th>Học Kì</th>
                         <th>Xếp Loại</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -32,26 +32,26 @@
                         <th>Năm Học</th>
                         <th>Học Kì</th>
                         <th>Xếp Loại</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </tfoot>
-                {% for sv_xl in sv_xls %}
+                {% for sv_xl in ds_xeploai %}
                     <tr>
                         <td>{{ sv_xl.sinhvien.MaSV }}</td>
                         <td>{{ sv_xl.sinhvien.HoTenSV }}</td>
                         <td>{{ sv_xl.sinhvien.lop }}</td>
-                        <td>3.60</td>
+                        <td>{{ sv_xl.DiemTB|floatformat:2 }}</td>
                         <td>{{ sv_xl.NamXL }}</td>
                         <td>{{ sv_xl.HocKyXL }}</td>
                         <td>{{ sv_xl.xeploai.TenXL }}</td>
-                        <td class="text-center"><i class="fa-solid fa-pencil"></i></td>
-                        <td class="text-center"><i class="fa-solid fa-trash"></i></td>
+                        <td class="text-center"><a class="btn py-0" href="{% url 'xl_edit' sv_xl.pk %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+                        <td class="text-center"><a class="btn py-0" href="{% url 'xl_delete' sv_xl.pk %}"><i class="fa-solid fa-trash"></i> Xóa</a></td>
                     </tr>
                 {% endfor %}
             </table>
             <div class="mb-3 text-end">
-                <button class="btn btn-primary text-white me-2" id="btnAdd">Thêm</button>
+                <a class="btn btn-primary text-white me-2" href="{% url 'xl_create' %}">Thêm</a>
                 {% comment %} <button class="btn btn-primary text-white me-2" id="btnEdit">Sửa</button>
                 <button class="btn btn-primary text-white" id="btnDelete">Xóa</button> {% endcomment %}
             </div>

@@ -19,13 +19,13 @@ class BoMon(models.Model):
     
 
 class CoVan(models.Model):
-    MaCV = models.CharField(max_length=10, primary_key=True)
-    HoTenCV = models.CharField(max_length=50)
+    MaCV = models.CharField("Mã cố vấn", max_length=10, primary_key=True)
+    HoTenCV = models.CharField("Họ tên", max_length=50)
     NgSinhCV = models.DateField("Ngày Sinh")
-    SDTCV = models.CharField(max_length=10)
-    EmailCV = models.CharField(max_length=50)
-    MatKhauCV = models.CharField(max_length=50)
+    SDTCV = models.CharField("Số điện thoại", max_length=10)
+    EmailCV = models.CharField("Email", max_length=50)
     bomon = models.ForeignKey(BoMon, on_delete=models.CASCADE, related_name='covans')
+    LopQuanLy = models.CharField(max_length=10, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='covan', blank=True, null=True)
 
     class Meta:

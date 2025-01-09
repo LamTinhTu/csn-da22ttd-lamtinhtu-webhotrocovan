@@ -27,12 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LANGUAGE_CODE = 'vi'  # Đặt ngôn ngữ mặc định thành tiếng Việt
-TIME_ZONE = 'Asia/Ho_Chi_Minh'  # Đặt múi giờ phù hợp với Việt Nam
+# LANGUAGE_CODE = 'vi'  # Đặt ngôn ngữ mặc định thành tiếng Việt
+# TIME_ZONE = 'Asia/Ho_Chi_Minh'  # Đặt múi giờ phù hợp với Việt Nam
 
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
+# USE_I18N = True
+# USE_L10N = True
+# USE_TZ = True
 
 # Application definition
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'student.apps.StudentConfig',
     'teacher.apps.TeacherConfig',
     'schedule.apps.ScheduleConfig',
-    'rate.apps.RateConfig'
+    'message.apps.MessageConfig'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'web_support.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -92,7 +91,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'websupport_db', 
+        'NAME': 'test_db', 
         'USER': 'root',   
         'PASSWORD': '',  
         'HOST': '127.0.0.1',  
@@ -123,13 +122,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+USE_L10N = False
 
 
 # Static files (CSS, JavaScript, Images)

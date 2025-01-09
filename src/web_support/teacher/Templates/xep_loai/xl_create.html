@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="modal-header">
+    <h5 class="modal-title" id="addAdvisorModalLabel">Xếp loại sinh viên</h5>
+</div>
+<form id="advisorForm" method="post">
+    {% csrf_token %}
+<div class="modal-body">    
+    <div class="mb-3">
+        <label for="sinhvien" class="form-label">Sinh viên <span class="text-danger">*</span></label>
+                <select id="sinhvien" name="sinhvien" class="form-control" > 
+                    <!-- Tự động thêm các tùy chọn lớp -->
+                    {% for sinhvien in ds_sinhvien %}
+                    <option value="{{ sinhvien.MaSV }}">{{ sinhvien.MaSV }} - {{ sinhvien.HoTenSV }} - {{ sinhvien.lop }}</option>
+                    {% endfor %}
+                </select>
+    </div>
+    <div class="mb-3">
+        <label for="NamXL" class="form-label">Năm học <span class="text-danger">*</span></label>
+                <select id="NamXL" name="NamXL" class="form-control" > 
+                    <!-- Tự động thêm các tùy chọn lớp -->
+                    {% for namhoc in ds_namhoc %}
+                    <option value="{{ namhoc }}">{{ namhoc }}</option>
+                    {% endfor %}
+                </select>
+    </div>
+    <div class="mb-3">
+        <label for="HocKyXL" class="form-label">Học kỳ <span class="text-danger">*</span></label>
+                <select id="HocKyXL" name="HocKyXL" class="form-control" > 
+                    <option value="Học kỳ I">Học kỳ I</option>
+                    <option value="Học kỳ II">Học kỳ II</option>
+                </select>
+    </div>
+    <div class="mb-3">
+        <label for="DiemTB" class="form-label">Điểm trung bình <span class="text-danger">*</span></label>
+        <input type="number" class="form-control" id="DiemTB" name="DiemTB" min="0" max="4.0" step="0.01" required>
+    </div>
+    <input type="hidden" id="xeploai" name="xeploai" value="" />
+</div>
+<div class="modal-footer mb-2">
+    <button type="submit" class="btn btn-primary" id="saveAdvisor">Thêm</button>
+</div>
+</form>
+{% endblock content %}

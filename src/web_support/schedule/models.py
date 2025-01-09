@@ -10,7 +10,7 @@ class LichHen(models.Model):
     DiaDiem = models.CharField(max_length=100)
     TrangThai = models.CharField(max_length=50)
     covan = models.ForeignKey(CoVan, on_delete=models.CASCADE, related_name='lichhens')
-    SinhVien = models.ForeignKey(SinhVien, on_delete = models.CASCADE, related_name='lichhens')
+    sinhvien = models.ForeignKey(SinhVien, on_delete = models.CASCADE, related_name='lichhens')
 
     class Meta:
         verbose_name = 'Lịch Hẹn'

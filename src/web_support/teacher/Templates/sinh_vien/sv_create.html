@@ -8,23 +8,19 @@
 <div class="modal-body">
     
         <div class="mb-3">
-            <label for="maSinhVien" class="form-label">Mã Số Sinh Viên <span
-                    class="text-danger">*</span></label>
+            <label for="MaSV" class="form-label">Mã Số Sinh Viên <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="MaSV" name="MaSV" required>
         </div>
         <div class="mb-3">
-            <label for="hoTen" class="form-label">Họ và Tên <span
-                    class="text-danger">*</span></label>
+            <label for="HoTenSV" class="form-label">Họ và Tên <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="HoTenSV" name="HoTenSV" required>
         </div>
         <div class="mb-3">
-            <label for="ngaysinh" class="form-label">Ngày Sinh <span
-                    class="text-danger">*</span></label>
-            <input type="date" class="form-control" id="NgSinhSV" name="NgSinhSV" required>
+            <label for="NgSinhSV" class="form-label">Ngày Sinh <span class="text-danger">*</span></label>
+            <input type="date" max="{{ curr_year }}-01-01" class="form-control" id="NgSinhSV" name="NgSinhSV" required>
         </div>
         <div class="mb-3">
-            <label for="lop" class="form-label">Đang Học Lớp <span
-                    class="text-danger">*</span></label>
+            <label for="lop" class="form-label">Đang Học Lớp <span class="text-danger">*</span></label>
                     <select id="lop" name="lop" class="form-control"> 
                         {% for lop in ds_lop %}
                         <option value="{{ lop.MaLop }}">{{ lop.MaLop }} - {{ lop.bomon }}</option>
@@ -32,24 +28,17 @@
                     </select>
         </div>
         <div class="mb-3">
-            <label for="soDienThoai" class="form-label">Số Điện Thoại <span
-                    class="text-danger">*</span></label>
+            <label for="SDTSV" class="form-label">Số Điện Thoại <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="SDTSV" name="SDTSV" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">Email <span
-                    class="text-danger">*</span></label>
+            <label for="EmailSV" class="form-label">Email <span class="text-danger">*</span></label>
             <input type="email" class="form-control" id="EmailSV" name="EmailSV" required>
-        </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Mật khẩu <span
-                    class="text-danger">*</span></label>
-            <input type="email" class="form-control" id="MatKhauSV" name="MatKhauSV" required>
         </div>
         <input type="hidden" id="covan" name="covan" value="{{ covan.MaCV }}" />  
 </div>
 <div class="modal-footer mb-2">
-    <button type="submit" class="btn btn-primary" id="saveAdvisor">Lưu</button>
+    <button type="submit" class="btn btn-primary">Thêm</button>
 </div>
 </form>
 {% endblock content %}
