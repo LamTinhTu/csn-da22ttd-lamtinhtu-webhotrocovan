@@ -1,14 +1,33 @@
 from django.contrib import admin
 from .models import SinhVien, XepLoai, sinhvien_xeploai
 from common.utils import generate_recent_academic_years
+from .forms import SinhVienForm, xeploaiform
+from datetime import date
+from django import forms
 # Register your models here.
 class sinhvienadmin(admin.ModelAdmin):
-    fields = ['MaSV', 'HoTenSV', 'NgSinhSV', 'SDTSV', 'EmailSV', 'covan', 'lop']
+    form = SinhVienForm
+    def get_fields(self, request, obj=None):
+        # Nếu là thêm mới, hiển thị tất cả các trường
+        if not obj:
+            return ('MaSV', 'HoTenSV', 'NgSinhSV', 'SDTSV', 'EmailSV', 'covan', 'lop')
+        # Nếu chỉnh sửa, loại bỏ trường 'id'
+        return ('HoTenSV', 'NgSinhSV', 'SDTSV', 'EmailSV', 'covan', 'lop')
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        if db_field.name == 'NgSinhSV':
+            min_year = 1960  # Giới hạn năm sinh thấp nhất
+            max_year = date.today().year - 18  # Tính toán để đảm bảo đủ 18 tuổi
+            kwargs['widget'] = forms.DateInput(attrs={
+                'type': 'date',
+                'min': f'{min_year}-01-01',  # Giới hạn ngày tối thiểu
+                'max': f'{max_year}-01-01',  # Giới hạn ngày tối đa
+            })
+        return super().formfield_for_dbfield(db_field, request, **kwargs)
 
 class XepLoaiSinhVienAdmin(admin.ModelAdmin):
     list_display = ('sinhvien', 'HocKyXL', 'NamXL', 'DiemTB', 'xeploai')
     fields = ('sinhvien', 'HocKyXL', 'NamXL', 'DiemTB')
-
+    form = xeploaiform
     def formfield_for_choice_field(self, db_field, request, **kwargs):
         if db_field.name == "NamXL":
             kwargs['choices'] = [(year, year) for year in generate_recent_academic_years()]
@@ -33,5 +52,5 @@ class XepLoaiSinhVienAdmin(admin.ModelAdmin):
 
 
 admin.site.register(SinhVien, sinhvienadmin)
-admin.site.register(XepLoai)
+# admin.site.register(XepLoai)
 admin.site.register(sinhvien_xeploai, XepLoaiSinhVienAdmin)

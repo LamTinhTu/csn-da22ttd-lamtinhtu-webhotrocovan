@@ -35,8 +35,8 @@ class student_view(TemplateView):
         return context
 
 class Student_edit(UpdateView):
-    model: SinhVien
-    fields = ['MaSV', 'HoTenSV', 'NgSinhSV', 'SDTSV', 'EmailSV']
+    model = SinhVien
+    fields = ['MaSV', 'HoTenSV', 'NgSinhSV', 'SDTSV', 'EmailSV', 'covan', 'lop']
     template_name = "sinhvien/sv_edit.html"
     success_url = reverse_lazy('student')
     context_object_name = 'sinhvien'
@@ -44,6 +44,7 @@ class Student_edit(UpdateView):
         context = super().get_context_data(**kwargs)
         user = self.request.user  # Lấy người dùng hiện tại
         sinhvien = SinhVien.objects.get(user=user)
+        context['sinhvien'] = sinhvien #gán thông tin của sinh viên đang đăng nhập
         covan = sinhvien.covan
         context['covan'] = covan
         lop = sinhvien.lop
@@ -51,6 +52,7 @@ class Student_edit(UpdateView):
         curr_year = datetime.datetime.now().year
         context['curr_year'] = curr_year - 18
         return context
+    
 
 class student_teacher_view(TemplateView):
     template_name = "covan/sv_covan.html"
@@ -101,7 +103,7 @@ class student_lichhen_view(TemplateView):
             sinhvien = SinhVien.objects.get(user=user)
             ds_lichhen = sinhvien.lichhens.all()
             context['ds_lichhen'] = ds_lichhen
-            ds_thongbao = ThongBao.objects.filter(user=user)
+            ds_thongbao = ThongBao.objects.filter(user=user).order_by("-id")
             context['ds_thongbao'] = ds_thongbao
         except SinhVien.DoesNotExist:
             context['error'] = 'Không tìm thấy sinh viên'
@@ -125,6 +127,8 @@ class ST_SCD_Create(CreateView):
             so_ngau_nhien = random.randint(0, 99999999)
             MaLH = f"LH{so_ngau_nhien:08d}"
             context['MaLH'] = MaLH
+            min_date = datetime.date.today() + datetime.timedelta(days=1)
+            context['min_date'] = min_date
         except SinhVien.DoesNotExist:
             context['error'] = 'Không tìm thấy sinh viên'
         return context

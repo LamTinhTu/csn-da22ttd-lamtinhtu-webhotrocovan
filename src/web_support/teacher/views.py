@@ -171,7 +171,7 @@ class LichHen_view(TemplateView):
             context['covan'] = covan
             ds_lichhen = covan.lichhens.all()
             context['ds_lichhen'] = ds_lichhen
-            ds_thongbao = ThongBao.objects.filter(user=user)
+            ds_thongbao = ThongBao.objects.filter(user=user).order_by("-id")
             context['ds_thongbao'] = ds_thongbao
         except CoVan.DoesNotExist:
             return redirect('login')
@@ -199,10 +199,8 @@ class TC_SCD_Create(CreateView):
             so_ngau_nhien = random.randint(0, 99999999)
             MaLH = f"LH{so_ngau_nhien:08d}"
             context['MaLH'] = MaLH
-            min_date = datetime.date.today()
+            min_date = datetime.date.today() + datetime.timedelta(days=1)
             context['min_date'] = min_date
-            min_time = datetime.datetime.now().time()
-            context['min_time'] = min_time
         except CoVan.DoesNotExist:
             return redirect('login')
         return context

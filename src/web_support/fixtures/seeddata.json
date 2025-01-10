@@ -1,0 +1,277 @@
+[
+    {
+        "model": "student.XepLoai",
+        "pk": "XS",
+        "fields":{
+            "TenXL": "Xuất sắc"
+        }
+    },
+    {
+        "model": "student.XepLoai",
+        "pk": "GI",
+        "fields":{
+            "TenXL": "Giỏi"
+        }
+    },
+    {
+        "model": "student.XepLoai",
+        "pk": "KH",
+        "fields":{
+            "TenXL": "Khá"
+        }
+    },
+    {
+        "model": "student.XepLoai",
+        "pk": "TB",
+        "fields":{
+            "TenXL": "Trung bình"
+        }
+    },
+    {
+        "model": "student.XepLoai",
+        "pk": "YE",
+        "fields":{
+            "TenXL": "Yếu"
+        }
+    },
+    {
+        "model": "student.XepLoai",
+        "pk": "KE",
+        "fields":{
+            "TenXL": "Kém"
+        }
+    },
+    {
+        "model": "teacher.BoMon",
+        "pk": "CNTT",
+        "fields":{
+            "TenBM": "Công Nghệ Thông Tin"
+        }
+    },
+    {
+        "model": "teacher.BoMon",
+        "pk": "KTXD",
+        "fields":{
+            "TenBM": "Kỹ Thuật Xây Dựng"
+        }        
+    },
+    {
+        "model": "teacher.BoMon",
+        "pk": "KTĐ-ĐT",
+        "fields":{
+            "TenBM": "Kỹ Thuật Điện - Điện Tử"
+        }        
+    },
+    {
+        "model": "teacher.BoMon",
+        "pk": "CK-ĐL",
+        "fields":{
+            "TenBM": "Cơ Khí - Động Lực"
+        }        
+    },
+    {
+        "model": "teacher.BoMon",
+        "pk": "KTHH",
+        "fields":{
+            "TenBM": "Kỹ Thuật Hóa Học"
+        }
+        
+    },
+    {
+        "model": "teacher.Lop",
+        "pk": "DA21TTA",
+        "fields":{
+            "TenLop": "Đại Học Công Nghệ Thông Tin A Khóa 21",
+            "bomon": "CNTT"
+        }        
+    },
+    {
+        "model": "teacher.Lop",
+        "pk": "DA22TTA",
+        "fields":{
+            "TenLop": "Đại Học Công Nghệ Thông Tin A Khóa 22",
+            "bomon": "CNTT"
+        }        
+    },
+    {
+        "model": "teacher.Lop",
+        "pk": "DA22TTD",
+        "fields":{
+            "TenLop": "Đại Học Công Nghệ Thông Tin D Khóa 22",
+            "bomon": "CNTT"
+        }        
+    },
+    {
+        "model": "homepage.User",
+        "pk": 2,
+        "fields":{
+            "username": "CV00000001",
+            "password": "pbkdf2_sha256$870000$TkqiIs6ADY5IYVRaEgdEph$0ewhVTX2JuB7tuDLpCK64ELg/1LCjaMEjPxqitciGDY=",
+            "is_teacher": true
+        }
+    },
+    {
+        "model": "homepage.User",
+        "pk": 3,
+        "fields":{
+            "username": "CV00000002",
+            "password": "pbkdf2_sha256$870000$HuFaRcI8f7fSDNYXfX3yKu$73es32Z3HTTmTV4zW8kpZk6jcrN36kqNl8l6iQTmgfI=",
+            "is_teacher": true
+        }
+    },
+    {
+        "model": "homepage.User",
+        "pk": 4,
+        "fields":{
+            "username": "110122249",
+            "password": "pbkdf2_sha256$870000$RJpR6TCTYH4FNkkEc1VMNu$FIcVs30W3QOFV5ZsJVR5zPII+Y0x8iUsLgzdJ9ec1ak=",
+            "is_student": true
+        }
+    },
+    {
+        "model": "homepage.User",
+        "pk": 5,
+        "fields":{
+            "username": "110122101",
+            "password": "pbkdf2_sha256$870000$c4NsKNYlJoEyCkzLFufZiH$orSdiTu99sPmgc62Z44bNTqXdr8XPtWYkPJH2/HLW8w=",
+            "is_student": true
+        }
+    },
+    {
+        "model": "teacher.CoVan",
+        "pk": "CV00000001",
+        "fields":{
+            "HoTenCV": "Đoàn Phước Miền",
+            "NgSinhCV": "1979-01-01",
+            "SDTCV": "0396123654",
+            "EmailCV": "miendoan@email.com",
+            "bomon": "CNTT",
+            "LopQuanLy": "DA22TTD",
+            "user": 2
+        }
+    },
+    {
+        "model": "teacher.CoVan",
+        "pk": "CV00000002",
+        "fields":{
+            "HoTenCV": "Nguyễn Bảo Ân",
+            "NgSinhCV": "1980-01-01",
+            "SDTCV": "0396123655",
+            "EmailCV": "annguyen@email.com",
+            "bomon": "CNTT",
+            "LopQuanLy": "DA22TTA",
+            "user": 3
+        }
+    },
+    {
+        "model": "student.SinhVien",
+        "pk": "110122249",
+        "fields":{
+            "HoTenSV": "Lâm Tinh Tú",
+            "NgSinhSV": "2004-11-23",
+            "SDTSV": "0396123556",
+            "EmailSV": "tulam@email.com",
+            "covan": "CV00000001",
+            "lop": "DA22TTD",
+            "user": 4
+        }
+    },
+    {
+        "model": "student.SinhVien",
+        "pk": "110122101",
+        "fields":{
+            "HoTenSV": "Phùng Quốc Kiệt",
+            "NgSinhSV": "2004-09-02",
+            "SDTSV": "0396123456",
+            "EmailSV": "kietphung@email.com",
+            "covan": "CV00000001",
+            "lop": "DA22TTD",
+            "user": 5
+        }
+    },
+    {
+        "model": "schedule.LichHen",
+        "pk": "LH00000001",
+        "fields":{
+            "TenBuoiHen": "Hẹn gặp mặt",
+            "NgayHen": "2024-12-24",
+            "GioHen": "09:30:00",
+            "DiaDiem": "C71.102",
+            "TrangThai": "Đã gặp",
+            "covan": "CV00000001",
+            "sinhvien": "110122249"
+        }
+    },
+    {
+        "model": "schedule.LichHen",
+        "pk": "LH00000002",
+        "fields":{
+            "TenBuoiHen": "Hẹn gặp mặt",
+            "NgayHen": "2025-01-10",
+            "GioHen": "09:30:00",
+            "DiaDiem": "C71.102",
+            "TrangThai": "Đã xác nhận",
+            "covan": "CV00000001",
+            "sinhvien": "110122249"
+        }
+    },
+    {
+        "model": "schedule.LichHen",
+        "pk": "LH00000003",
+        "fields":{
+            "TenBuoiHen": "Hẹn gặp mặt",
+            "NgayHen": "2024-12-24",
+            "GioHen": "09:00:00",
+            "DiaDiem": "C71.102",
+            "TrangThai": "Vắng",
+            "covan": "CV00000001",
+            "sinhvien": "110122101"
+        }
+    },
+    {
+        "model": "schedule.LichHen",
+        "pk": "LH00000004",
+        "fields":{
+            "TenBuoiHen": "Hẹn gặp mặt",
+            "NgayHen": "2025-01-11",
+            "GioHen": "09:30:00",
+            "DiaDiem": "C71.102",
+            "TrangThai": "Đã xác nhận",
+            "covan": "CV00000001",
+            "sinhvien": "110122249"
+        }
+    },
+    {
+        "model": "student.sinhvien_xeploai",
+        "pk": 1,
+        "fields":{
+            "sinhvien": "110122249",
+            "xeploai": "XS",
+            "NamXL": "2023-2024",
+            "HocKyXL": "Học kỳ I",
+            "DiemTB": "3.60"
+        }
+    },
+    {
+        "model": "student.sinhvien_xeploai",
+        "pk": 2,
+        "fields":{
+            "sinhvien": "110122249",
+            "xeploai": "XS",
+            "NamXL": "2023-2024",
+            "HocKyXL": "Học kỳ II",
+            "DiemTB": "3.97"
+        }
+    },
+    {
+        "model": "student.sinhvien_xeploai",
+        "pk": 3,
+        "fields":{
+            "sinhvien": "110122101",
+            "xeploai": "XS",
+            "NamXL": "2023-2024",
+            "HocKyXL": "Học kỳ II",
+            "DiemTB": "3.60"
+        }
+    }
+]

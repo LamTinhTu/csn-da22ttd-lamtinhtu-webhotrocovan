@@ -56,14 +56,14 @@ class XepLoai(models.Model):
 class sinhvien_xeploai(models.Model):
     sinhvien = models.ForeignKey(SinhVien, on_delete=models.CASCADE, related_name='sv_xls')
     xeploai = models.ForeignKey(XepLoai, on_delete=models.CASCADE, related_name='sv_xls', null=True, blank=True)
-    NamXL = models.CharField(max_length=50, choices=[(year, year) for year in generate_recent_academic_years()])
+    NamXL = models.CharField("Năm Học", max_length=50, choices=[(year, year) for year in generate_recent_academic_years()])
     HocKyXL = models.CharField("Học kỳ" ,max_length=50, choices=[('Học kỳ I', 'Học kỳ I'), ('Học kỳ II', 'Học kỳ II')])
     DiemTB = models.DecimalField("Điểm trung bình", max_digits=10, decimal_places=2)
 
     class Meta:
         unique_together = ('sinhvien', 'NamXL', 'HocKyXL')
-        verbose_name = 'Sinh viên xếp loại'
-        verbose_name_plural = 'Sinh viên xếp loại'
+        verbose_name = 'Xếp loại sinh viên'
+        verbose_name_plural = 'Xếp loại sinh viên'
 
     def __str__(self):
         return f"{self.sinhvien} - Năm: {self.NamXL} - Học kỳ: {self.HocKyXL}"

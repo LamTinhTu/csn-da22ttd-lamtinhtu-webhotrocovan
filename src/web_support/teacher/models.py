@@ -7,8 +7,8 @@ from homepage.models import User
 # Create your models here.
 
 class BoMon(models.Model):
-    MaBM = models.CharField(max_length=10, primary_key=True)
-    TenBM = models.CharField(max_length=50)
+    MaBM = models.CharField("Mã bộ môn", max_length=10, primary_key=True)
+    TenBM = models.CharField("Tên bộ môn", max_length=50)
 
     class Meta:
         verbose_name = 'Bộ Môn'
@@ -52,8 +52,8 @@ def create_user_for_sinhvien(sender, instance, created, **kwargs):
             instance.save()
     
 class Lop(models.Model):
-    MaLop = models.CharField(max_length=10, primary_key=True)
-    TenLop = models.CharField(max_length=50)
+    MaLop = models.CharField("Mã lớp", max_length=10, primary_key=True)
+    TenLop = models.CharField("Tên lớp", max_length=50)
     bomon = models.ForeignKey(BoMon, on_delete=models.CASCADE, related_name='lops')
 
     class Meta:

@@ -76,7 +76,11 @@
                         <td>{{ lichhen.DiaDiem }}</td>
                         <td>{{ lichhen.TrangThai }}</td>
                         <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cv_lh_edit' lichhen.pk %}"><i class="fa-solid fa-pencil"></i> Sửa</a></td>
+                        {% if lichhen.TrangThai == "Đã xác nhận" or lichhen.TrangThai == "Chưa xác nhận" %}
                         <td style="color: #0056b3"><a class="btn py-0" href="{% url 'cancel_cv' lichhen.pk %}"><i class="fa-solid fa-trash"></i> Hủy</a></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
