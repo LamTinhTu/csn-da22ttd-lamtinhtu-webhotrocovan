@@ -92,15 +92,15 @@ class XepLoai_CreateView(CreateView):
     def form_valid(self, form):
         instance = form.save(commit=False)
 
-        if instance.DiemTB >= 3.6:
+        if instance.DiemTB >= 3.59:
             instance.xeploai = XepLoai.objects.get(MaXL = 'XS')
-        elif instance.DiemTB >= 3.2:
+        elif instance.DiemTB > 3.19:
             instance.xeploai = XepLoai.objects.get(MaXL = 'GI')
-        elif instance.DiemTB >= 2.5:
+        elif instance.DiemTB >= 2.49:
             instance.xeploai = XepLoai.objects.get(MaXL = 'KH')
-        elif instance.DiemTB >= 2.0:
+        elif instance.DiemTB >= 1.99:
             instance.xeploai = XepLoai.objects.get(MaXL = 'TB')
-        elif instance.DiemTB >= 1.0:
+        elif instance.DiemTB >= 0.99:
             instance.xeploai = XepLoai.objects.get(MaXL = 'YE')
         else:
             instance.xeploai = XepLoai.objects.get(MaXL = 'KE')
@@ -134,15 +134,15 @@ class XepLoai_EditView(UpdateView):
     def form_valid(self, form):
         instance = form.save(commit=False)
 
-        if instance.DiemTB >= 3.6:
+        if instance.DiemTB > 3.59:
             instance.xeploai = XepLoai.objects.get(MaXL = 'XS')
-        elif instance.DiemTB >= 3.2:
+        elif instance.DiemTB > 3.19:
             instance.xeploai = XepLoai.objects.get(MaXL = 'GI')
-        elif instance.DiemTB >= 2.5:
+        elif instance.DiemTB > 2.49:
             instance.xeploai = XepLoai.objects.get(MaXL = 'KH')
-        elif instance.DiemTB >= 2.0:
+        elif instance.DiemTB > 1.99:
             instance.xeploai = XepLoai.objects.get(MaXL = 'TB')
-        elif instance.DiemTB >= 1.0:
+        elif instance.DiemTB > 0.99:
             instance.xeploai = XepLoai.objects.get(MaXL = 'YE')
         else:
             instance.xeploai = XepLoai.objects.get(MaXL = 'KE')

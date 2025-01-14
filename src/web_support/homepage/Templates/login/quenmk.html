@@ -17,25 +17,15 @@
 <body>
 
     <div class="first3">
-        <from action="">
-            <h1>Quên Mật Khẩu</h1>
-
-            <div class=" input-box3">
-                <input type="text" placeholder="Mã Số Sinh Viên" required>
-                <i class='bx bxs-graduation'></i>
-            </div>
-
-            <div class=" input-box3">
-                <input type="text" placeholder="Số điện thoại" required>
-                <i class='bx bxs-phone'></i>
-            </div>
-
-            <button type="submit" class="btn"> Đặt Lại Mật Khẩu</button>
-
-            <div class="register-link3">
-                <p>Bạn đã có tài khoản?<a href="{% url 'login'%}">Đăng Nhập</a></p>
-            </div>
-        </from>
+        <h1>Quên Mật Khẩu</h1>
+        <div class="notification-box3">
+            <p>Vui lòng liên hệ <strong>Admin</strong> để được hỗ trợ đặt lại mật khẩu.</p>
+            <p>Email: <a style="color: blue;">lttus231104@email.com</a></p>
+            <p>Điện thoại: <a style="color: blue;">0339626863</a></p>
+        </div>
+        <div class="register-link3">
+            <p>Bạn đã có tài khoản? <a href="{% url 'login' %}">Đăng Nhập</a></p>
+        </div>
     </div>
 
 

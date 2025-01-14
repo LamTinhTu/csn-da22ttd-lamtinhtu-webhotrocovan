@@ -36,15 +36,15 @@ class XepLoaiSinhVienAdmin(admin.ModelAdmin):
         return super().formfield_for_choice_field(db_field, request, **kwargs)
     
     def save_model(self, request, obj, form, change):
-        if obj.DiemTB >=3.6:
+        if obj.DiemTB >3.59:
             obj.xeploai = XepLoai.objects.get(MaXL = 'XS')
-        elif obj.DiemTB >=3.2:
+        elif obj.DiemTB >3.19:
             obj.xeploai = XepLoai.objects.get(MaXL = 'GI')
-        elif obj.DiemTB >=2.5:
+        elif obj.DiemTB >2.49:
             obj.xeploai = XepLoai.objects.get(MaXL = 'KH')
-        elif obj.DiemTB >=2.0:
+        elif obj.DiemTB >1.99:
             obj.xeploai = XepLoai.objects.get(MaXL = 'TB')
-        elif obj.DiemTB >=1.0:
+        elif obj.DiemTB >0.99:
             obj.xeploai = XepLoai.objects.get(MaXL = 'YE')
         else:
             obj.xeploai = XepLoai.objects.get(MaXL = 'KE')
